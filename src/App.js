@@ -50,8 +50,8 @@ class Search extends React.Component {
   handleSubmit = async e => {
     e.preventDefault();
     let data = await superagent.get('https://swapi.co/api/people/');
-    let apiResults = data.body.results.reduce((list, person) => {
-      list[person.name] = person.url;
+    let apiResults = data.body.results.reduce((list, resultVal) => {
+      list[resultVal.name] = resultVal.url;
       return list;
     }, {});
 
