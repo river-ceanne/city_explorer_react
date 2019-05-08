@@ -43,8 +43,7 @@ class Search extends React.Component {
     };
   }
 
-  handleSearchKeyword = e => {
-    e.preventDefault();
+  handleSearchKeyword = (search_query) => {
     this.setState({ search_query });
   };
 
