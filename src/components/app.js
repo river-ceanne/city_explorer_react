@@ -2,6 +2,8 @@ import React from 'react';
 import superagent from 'superagent';
 import If from './if/if.js';
 import Header from './header.js';
+import SearchResults from './search-results.js';
+import SearchForm from './search-form.js';
 import { Route } from 'react-router-dom';
 require('dotenv').config();
 
@@ -11,12 +13,16 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: {}
+      location: {
+        latitude: -33.8569,
+        longitude: 151.2152
+      }
     };
   }
 
-  setLoc = () => {
-    this.setState({ selected: this.state.selected.map((v, i) => i === index ? value : v)})
+  setLoc = location => {
+    this.setState(location)
+    console.log(this.state);
 }
   
 
@@ -24,8 +30,8 @@ class App extends React.Component {
     return (
       <>
         <Header />
-        <SearchForm onChange=this.setLoc />
-        <Map value={this.state.location}/>
+        <SearchForm callback={this.setLoc} />
+        <Map value={this.state}/>
         <SearchResults />
       </>
     );
@@ -34,83 +40,37 @@ class App extends React.Component {
 
 export default App;
 
-class SearchForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      search_query: '',
-    };
-  }
 
-  handleSearchKeyword = e => {
-    let search_query = e.target.value;
-    this.setState({ search_query });
-  };
-
-  handleSubmit = async e => {
-    e.preventDefault();
-    let query = this.state.search_query;
-    console.log(query);
-    let data = await superagent.get(`${__API_URL__}/location`).query({ data : query });
-    console.log(data.body);
-    let apiResults = data.body;
-
-    console.log('API RESULTS : ',apiResults);
-    this.props.handler(apiResults);
-  };
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input onChange={this.handleSearchKeyword} />
-        <button onClick={this.handleSubmit}>Search</button>
-      </form>
-    );
-  }
-}
 
 class Map extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      latitude : '',
-      longitude: ''
+      parentState : this.props.value,
+      latitude : -33.8569,
+      longitude: 151.2152,
+      mapURL: `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude}%2c%20${this.longitude}&zoom=13&size=600x300&maptype=roadmap
+      &key=${process.env.REACT_APP_GEOCODE_API_KEY}`
     };
+
+    console.log('MAP STATE : ',this.state);
   }
+
+  displayMap = () => {
+    let location = this.props.value;
+    let mapURL = `https://maps.googleapis.com/maps/api/staticmap?center=${location.latitude},{location.longitude}&zoom=13&size=600x300&maptype=roadmap
+    &key=${process.env.REACT_APP_GEOCODE_API_KEY}`
+    this.setState({mapURL});
+    console.log('MAP STATE AFTER SISPLAY MAP : ', this.state);
+  }
+  
 
   render() {
     return (
-      <iframe width="600" height="500" id="gmap_canvas" 
-      src="https://www.google.com/maps/embed/v1/view
-      ?key={  }
-      &center=-33.8569,151.2152
-      &zoom=18
-      &maptype=satellite"
-      frameBorder="0" scrolling="no">
-      </iframe>
+      <img width="600" height="500" id="gmap_canvas" 
+      src={this.state.mapURL} onChange={this.displayMap}/>
     );
-  }
-}
-
-class SearchResults extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-
-    let apis = ['weather','events','movies','yelp'];
-    let apiItems = apis.map((item, i) => <li key={i}>{item}</li>);
-
-    return(
-      <></>
-      // <>
-      // <Route exact path="/" component={App} />
-      // <Route exact path="/apis" render={() => <Result>{apiItems}</Result>} />
-      // </>
-    );
-   
   }
 }
 
