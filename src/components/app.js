@@ -31,7 +31,7 @@ class App extends React.Component {
       <>
         <Header />
         <SearchForm callback={this.setLoc} />
-        <Map value={this.state} callback={this.setLoc}/>
+        <Map value={this.state} />
         <SearchResults />
       </>
     );
@@ -61,16 +61,20 @@ class Map extends React.Component {
   displayMap = () => {
     let location = this.props.value;
     let mapURL = `https://maps.googleapis.com/maps/api/staticmap?center=${location.latitude},{location.longitude}&zoom=13&size=600x300&maptype=roadmap
-    &key=${process.env.REACT_APP_GEOCODE_API_KEY}`
+    &key=${process.env.REACT_APP_GEOCODE_API_KEY}`;
     this.setState({mapURL});
-    console.log('MAP STATE AFTER SISPLAY MAP : ', this.state);
+    console.log('MAP STATE AFTER DISPLAY MAP : ', this.state);
   }
   
 
   render() {
+    let location = this.props.value;
+    let mapURL = `https://maps.googleapis.com/maps/api/staticmap?center=${location.latitude},${location.longitude}&zoom=13&size=600x300&maptype=roadmap
+    &key=${process.env.REACT_APP_GEOCODE_API_KEY}`;
+
     return (
       <img width="900" id="gmap_canvas" 
-      src={this.state.mapURL}></img>
+      src={mapURL}></img>
     );
   }
 }
