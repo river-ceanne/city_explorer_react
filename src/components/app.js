@@ -31,7 +31,7 @@ class App extends React.Component {
       <>
         <Header />
         <SearchForm callback={this.setLoc} />
-        <Map value={this.state}/>
+        <Map value={this.state} callback={this.setLoc}/>
         <SearchResults />
       </>
     );
@@ -55,6 +55,7 @@ class Map extends React.Component {
     };
 
     console.log('MAP STATE : ',this.state);
+    this.displayMap();
   }
 
   displayMap = () => {
@@ -68,8 +69,8 @@ class Map extends React.Component {
 
   render() {
     return (
-      <img width="600" height="500" id="gmap_canvas" 
-      src={this.state.mapURL} onChange={this.displayMap}/>
+      <img width="900" id="gmap_canvas" 
+      src={this.state.mapURL}></img>
     );
   }
 }
