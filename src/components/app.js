@@ -1,6 +1,7 @@
 import React from 'react';
 import superagent from 'superagent';
 import If from './if/if.js';
+import Header from './header.js';
 import { Route } from 'react-router-dom';
 require('dotenv').config();
 
@@ -23,26 +24,15 @@ class App extends React.Component {
     return (
       <>
         <Header />
-        <SearchForm onChange=this.setLoc/>
+        <SearchForm onChange=this.setLoc />
         <Map value={this.state.location}/>
         <SearchResults />
       </>
     );
   }
-}
+}//end of <App>
 
 export default App;
-
-
-
-const Header = () => {
-  return (
-    <header>
-      <h1>City Explorer</h1>
-      <p>Enter a location below to learn about the weather, events, restaurants, movies filmed there, and more!</p>
-    </header>
-  );
-};
 
 class SearchForm extends React.Component {
   constructor(props) {
