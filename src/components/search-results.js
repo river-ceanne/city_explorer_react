@@ -1,4 +1,5 @@
 import React from 'react';
+import Weather from './result.js';
 
 class SearchResults extends React.Component {
   constructor(props) {
@@ -11,11 +12,10 @@ class SearchResults extends React.Component {
     let apiItems = apis.map((item, i) => <li key={i}>{item}</li>);
 
     return(
-      <></>
-      // <>
-      // <Route exact path="/" component={App} />
-      // <Route exact path="/apis" render={() => <Result>{apiItems}</Result>} />
-      // </>
+      <>
+      <Weather value={this.props.value}/>
+      </>
+      
     );
    
   }
