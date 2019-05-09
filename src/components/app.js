@@ -1,9 +1,39 @@
 import React from 'react';
 import superagent from 'superagent';
 import If from './if/if.js';
+import { Route } from 'react-router-dom';
 require('dotenv').config();
 
 let __API_URL__ = 'https://afternoon-brook-55677.herokuapp.com';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      location: {}
+    };
+  }
+
+  setLoc = () => {
+    this.setState({ selected: this.state.selected.map((v, i) => i === index ? value : v)})
+}
+  
+
+  render() {
+    return (
+      <>
+        <Header />
+        <SearchForm onChange=this.setLoc/>
+        <Map value={this.state.location}/>
+        <SearchResults />
+      </>
+    );
+  }
+}
+
+export default App;
+
+
 
 const Header = () => {
   return (
@@ -22,19 +52,20 @@ class SearchForm extends React.Component {
     };
   }
 
-  handleSearchKeyword = (search_query) => {
+  handleSearchKeyword = e => {
+    let search_query = e.target.value;
     this.setState({ search_query });
   };
 
   handleSubmit = async e => {
     e.preventDefault();
-    let data = await superagent.get(__API_URL__);
-    let apiResults = data.body.results.reduce((list, resultVal) => {
-      list[resultVal.name] = resultVal.url;
-      return list;
-    }, {});
+    let query = this.state.search_query;
+    console.log(query);
+    let data = await superagent.get(`${__API_URL__}/location`).query({ data : query });
+    console.log(data.body);
+    let apiResults = data.body;
 
-    console.log(apiResults);
+    console.log('API RESULTS : ',apiResults);
     this.props.handler(apiResults);
   };
 
@@ -53,15 +84,21 @@ class Map extends React.Component {
     super(props);
 
     this.state = {
-      map : ''
+      latitude : '',
+      longitude: ''
     };
   }
 
   render() {
     return (
-      <div class="mapouter"><div class="gmap_canvas">
-      <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=seattel&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-      </iframe><a href="https://www.crocothemes.net"></a></div></div>
+      <iframe width="600" height="500" id="gmap_canvas" 
+      src="https://www.google.com/maps/embed/v1/view
+      ?key={  }
+      &center=-33.8569,151.2152
+      &zoom=18
+      &maptype=satellite"
+      frameBorder="0" scrolling="no">
+      </iframe>
     );
   }
 }
@@ -72,8 +109,16 @@ class SearchResults extends React.Component {
   }
 
   render() {
+
+    let apis = ['weather','events','movies','yelp'];
+    let apiItems = apis.map((item, i) => <li key={i}>{item}</li>);
+
     return(
-      <Result />
+      <></>
+      // <>
+      // <Route exact path="/" component={App} />
+      // <Route exact path="/apis" render={() => <Result>{apiItems}</Result>} />
+      // </>
     );
    
   }
@@ -86,25 +131,13 @@ class Result extends React.Component {
 
   render() {
     return(
-      <section>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </section>
+      <React.Fragment>
+        <ul>{this.props.children}</ul>
+        <If condition={this.props.children.length > 1}>
+        </If>
+      </React.Fragment>
     );
    
   }
 }
 
-class App extends React.Component {
-  render() {
-    return (
-      <>
-        <Header />
-        <SearchForm />
-        <Map />
-        <SearchResults />
-      </>
-    );
-  }
-}
-
-export default App;
