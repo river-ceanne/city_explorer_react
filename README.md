@@ -2,7 +2,7 @@
 
 Create a React front-end for the City Explorer project. 
 
-### `Feature Tasks`
+### `Part 1 - Feature Tasks`
 
 Scaffold - create basic markup of needed html elements with React. 
 
@@ -77,3 +77,91 @@ Start time: 10:10 AM
 Finish time: 10:30 AM
 
 Actual time needed to complete: 20 mins
+
+
+### `Part 2 - Feature Tasks`
+
+Re-factoring scaffold made in Part-1 Feature Tasks and adding routing to results from server.
+
+Create heiarchy likeso..
+<App>
+  <Header>
+  <SearchForm>
+  <Map>
+  <SearchResults>
+    <Result> -- should exist and be individually named for each set of API call results - for example:
+
+    <Yelp lat="x" long="x">
+    <MovieDB lat="x" long="x"> 
+
+#### `<App>`
+
+Number and name of feature: 
+
+Estimate of time needed to complete: 15 minutes
+
+Start time: 9AM
+
+Finish time: 9:15AM
+
+Actual time needed to complete: 10 mins
+
+#### `<Header>`
+
+Number and name of feature: 
+
+Estimate of time needed to complete: 15 minutes
+
+Start time: 9AM
+
+Finish time: 9:15AM
+
+Actual time needed to complete: 10 mins
+
+#### `<SearchForm>`
+
+Number and name of feature: 
+
+Estimate of time needed to complete: 15 minutes
+
+Start time: 9AM
+
+Finish time: 9:15AM
+
+Actual time needed to complete: 10 mins
+
+#### `<Map>`
+
+Number and name of feature: 
+
+Estimate of time needed to complete: 15 minutes
+
+Start time: 9AM
+
+Finish time: 9:15AM
+
+Actual time needed to complete: 10 mins
+
+#### `<SearchResults>`
+
+Number and name of feature: 
+
+Estimate of time needed to complete: 15 minutes
+
+Start time: 9AM
+
+Finish time: 9:15AM
+
+Actual time needed to complete: 10 mins
+
+#### `<Result>`
+
+Number and name of feature: 
+
+Estimate of time needed to complete: 15 minutes
+
+Start time: 9AM
+
+Finish time: 9:15AM
+
+Actual time needed to complete: 10 mins

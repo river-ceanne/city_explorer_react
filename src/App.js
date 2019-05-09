@@ -1,6 +1,8 @@
 import React from 'react';
 import superagent from 'superagent';
 
+let __API_URL__ = 'https://afternoon-brook-55677.herokuapp.com';
+
 const Header = () => {
   return (
     <header>
@@ -49,7 +51,7 @@ class Search extends React.Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    let data = await superagent.get('https://swapi.co/api/people/');
+    let data = await superagent.get(__API_URL__);
     let apiResults = data.body.results.reduce((list, resultVal) => {
       list[resultVal.name] = resultVal.url;
       return list;
@@ -71,6 +73,10 @@ class Search extends React.Component {
 class Map extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      map = '';
+    };
   }
 
   render() {
