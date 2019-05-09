@@ -1,5 +1,7 @@
 import React from 'react';
 import superagent from 'superagent';
+import If from './if/if.js';
+require('dotenv').config();
 
 let __API_URL__ = 'https://afternoon-brook-55677.herokuapp.com';
 
@@ -12,32 +14,7 @@ const Header = () => {
   );
 };
 
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      results: [],
-    };
-  }
-
-
-  render() {
-    return (
-      <React.Fragment>
-        <Search />
-        <Map />
-        <Result />
-        <Result />
-        <Result />
-        <Result />
-        <Result />
-      </React.Fragment>
-    );
-  }
-}
-
-class Search extends React.Component {
+class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,6 +34,7 @@ class Search extends React.Component {
       return list;
     }, {});
 
+    console.log(apiResults);
     this.props.handler(apiResults);
   };
 
@@ -75,7 +53,7 @@ class Map extends React.Component {
     super(props);
 
     this.state = {
-      map = '';
+      map : ''
     };
   }
 
@@ -88,6 +66,19 @@ class Map extends React.Component {
   }
 }
 
+class SearchResults extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return(
+      <Result />
+    );
+   
+  }
+}
+
 class Result extends React.Component {
   constructor(props) {
     super(props);
@@ -97,7 +88,7 @@ class Result extends React.Component {
     return(
       <section>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </section>
+      </section>
     );
    
   }
@@ -106,10 +97,12 @@ class Result extends React.Component {
 class App extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <>
         <Header />
-        <Main />
-      </React.Fragment>
+        <SearchForm />
+        <Map />
+        <SearchResults />
+      </>
     );
   }
 }
