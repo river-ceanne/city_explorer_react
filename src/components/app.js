@@ -12,12 +12,16 @@ class App extends React.Component {
       location: {
         latitude: -33.8569,
         longitude: 151.2152
-      }
+      },
+      weather: {},
+      yelp: {},
+      events: {},
+      movies: {}
     };
   }
 
-  setLoc = location => {
-    this.setState(location)
+  setStateData = stateData => {
+    this.setState(stateData)
     console.log(this.state);
 }
 
@@ -25,7 +29,7 @@ class App extends React.Component {
     return (
       <>
         <Header />
-        <SearchForm callback={this.setLoc} />
+        <SearchForm callback={this.setStateData} />
         <Map value={this.state} />
         <SearchResults value={this.state}/>
       </>

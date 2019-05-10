@@ -21,9 +21,17 @@ class SearchForm extends React.Component {
   handleSubmit = async e => {
     e.preventDefault();
     let query = this.state.search_query;
+    
     console.log(query);
-    let data = await superagent.get(`${__API_URL__}/location`).query({ data : query });
-    let apiResults = data.body;
+
+    let locationData = await superagent.get(`${__API_URL__}/location`).query({ data : query });
+    let weatherData = await superagent.get(`${__API_URL__}/weather`).query({data : query});
+
+
+    let apiResults = {
+      location: locationData.body,
+      weather: weatherData.body.text
+    }
 
     console.log('API RESULTS : ',apiResults);
     this.props.callback(apiResults);

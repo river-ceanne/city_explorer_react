@@ -6,7 +6,7 @@ class Map extends React.Component {
     super(props);
 
     this.state = {
-      parentState : this.props.value,
+      parentState : this.props.value.location,
       latitude : -33.8569,
       longitude: 151.2152,
       mapURL: `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude}%2c%20${this.longitude}&zoom=13&size=600x300&maptype=roadmap
@@ -17,7 +17,7 @@ class Map extends React.Component {
   }
 
   render() {
-    let location = this.props.value;
+    let location = this.props.value.location;
     let mapURL = `https://maps.googleapis.com/maps/api/staticmap?center=${location.latitude},${location.longitude}&zoom=13&size=600x300&maptype=roadmap
     &key=${process.env.REACT_APP_GEOCODE_API_KEY}`;
 
