@@ -21,16 +21,21 @@ class SearchForm extends React.Component {
   handleSubmit = async e => {
     e.preventDefault();
     let query = this.state.search_query;
-    
-    console.log(query);
 
     let locationData = await superagent.get(`${__API_URL__}/location`).query({ data : query });
     let weatherData = await superagent.get(`${__API_URL__}/weather`).query({data : locationData.body});
+    let yelpData = await superagent.get(`${__API_URL__}/yelp`).query({data : locationData.body});
+    let moviesData = await superagent.get(`${__API_URL__}/movies`).query({data : locationData.body});
+    let eventsData = await superagent.get(`${__API_URL__}/events`).query({data : locationData.body});
 
     console.log(weatherData);
+
     let apiResults = {
       location: locationData.body,
-      weather: weatherData.body
+      weather: weatherData.body,
+      yelp: yelpData.body,
+      events: eventsData.body,
+      movies: moviesData.body
     }
 
     console.log('API RESULTS : ',apiResults);

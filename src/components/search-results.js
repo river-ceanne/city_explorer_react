@@ -1,5 +1,5 @@
 import React from 'react';
-import Result,{Weather} from './result.js';
+import Result,{Weather, Events, Yelp, Movies} from './result.js';
 
 class SearchResults extends React.Component {
   constructor(props) {
@@ -14,6 +14,9 @@ class SearchResults extends React.Component {
     return(
       <>
       <Weather value={this.props.weather}/>
+      <Yelp value={this.props.yelp}/>
+      <Events value={this.props.events}/>
+      <Movies value={this.props.movies}/>
       </>
       
     );

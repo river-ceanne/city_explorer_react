@@ -108,7 +108,7 @@ Actual time needed to complete: 10 mins
 
 #### `<Header>`
 
-Number and name of feature: 
+Number and name of feature: 10 mins
 
 Estimate of time needed to complete: 15 minutes
 
@@ -134,34 +134,34 @@ Actual time needed to complete: 10 mins
 
 Number and name of feature: 
 
-Estimate of time needed to complete: 15 minutes
+Estimate of time needed to complete: 2 hours
 
 Start time: 9AM
 
 Finish time: 9:15AM
 
-Actual time needed to complete: 10 mins
+Actual time needed to complete: 3 hours
 
 #### `<SearchResults>`
 
 Number and name of feature: 
 
-Estimate of time needed to complete: 15 minutes
+Estimate of time needed to complete: 2 hours
 
-Start time: 9AM
+Start time: 
 
-Finish time: 9:15AM
+Finish time: 
 
-Actual time needed to complete: 10 mins
+Actual time needed to complete: 2 hours
 
 #### `<Result>`
 
 Number and name of feature: 
 
-Estimate of time needed to complete: 15 minutes
+Estimate of time needed to complete: 2 hours
 
-Start time: 9AM
+Start time: 
 
-Finish time: 9:15AM
+Finish time: 
 
-Actual time needed to complete: 10 mins
+Actual time needed to complete: 5 hours
