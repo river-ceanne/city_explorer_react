@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header.js';
-import SearchResults from './search-results.js';
+import {SearchResults} from './search-results.js';
 import SearchForm from './search-form.js';
 import Map from './map.js';
 require('dotenv').config();

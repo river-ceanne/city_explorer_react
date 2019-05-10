@@ -1,30 +1,15 @@
 import React from 'react';
-import superagent from 'superagent';
-import If from './if/if.js';
 
 let __API_URL__ = 'https://afternoon-brook-55677.herokuapp.com';
 
-export class Weather extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: ''
-    }
-  }
-
-  render() {
-    let data=this.props.value;
-    let weatherArr = new Array(data.length).fill('');
-
+export const Weather = props =>  {
+    let data=props.value;
+    let weatherArr = [];
    
-    if (this.props.value !== null){
+    if (data !== null){
       for(let i = 0; i < data.length; i++)
-      weatherArr.push(<li key ={i}>The forecast for {this.props.value[i].time} is: {this.props.value[i].forecast}.</li>);
+      weatherArr.push(<li key ={i}>The forecast for {data[i].time} is: {data[i].forecast}.</li>);
     }
-
-    console.table('API RESULTS IN WEATHER : ', data);
-
-    console.table('WEATHER ARRAY: ', weatherArr);
 
     return(
       <React.Fragment>
@@ -32,23 +17,24 @@ export class Weather extends React.Component {
       </React.Fragment>
     );
    
-  }
-}//end of WEATHER
+};//end of WEATHER
 
 // **************************************************************//
+
 export const Yelp = props => {
   let data=props.value;
-    let yelpArr = new Array(data.length).fill('');
+    let yelpArr = [];
    
-    if (props.value !== null){
+    if (data !== null){
       for(let i = 0; i < data.length; i++)
       yelpArr.push(
         <li key = {i}>
             <a href={data[i].url}>{data[i].name}</a>
             <p>The average rating is {data[i].rating} out of 5 and the average cost is {data[i].price} out of 4</p>
             <img src={data[i].image_url} alt = "Yelp"/>
-          </li>
+        </li>
       );
+      
     }
 
     return(
@@ -64,16 +50,11 @@ export const Yelp = props => {
 
 export const Movies = props => {
   let data=props.value;
-    let movieArr = new Array(data.length).fill('');
-    let movieImage = 'https://via.placeholder.com/150';
+    let movieArr = [];
    
-    if (props.value !== null){
+    if (data !== null){
       
       for(let i = 0; i < data.length; i++){
-      
-      // if(data[i].image_url !== null || data[i].image_url !== ''){
-      //   movieImage = data[i].image_url;
-      // }
 
       movieArr.push(
         <li key = {i}>
@@ -97,7 +78,25 @@ export const Movies = props => {
 // **************************************************************//
 
 export const Events = props => {
-  return <footer>My Cool Footer</footer>;
+  let data=props.value;
+    let eventsArr = [];
+
+    if (data !== null){
+      for(let i = 0; i < data.length; i++)
+      eventsArr.push(
+        <li key = {i}>
+            <a href={data[i].link}>{data[i].name}</a>
+            <p>Event Date: {data[i].event_date}</p>
+            <p>{data[i].summary}</p>
+          </li>
+      );
+    }
+
+    return(
+      <React.Fragment>
+        <ul>{eventsArr}</ul>
+      </React.Fragment>
+    );
 };
 
 
