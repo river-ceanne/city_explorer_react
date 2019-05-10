@@ -1,5 +1,5 @@
 import React from 'react';
-import Weather from './result.js';
+import Result,{Weather} from './result.js';
 
 class SearchResults extends React.Component {
   constructor(props) {
