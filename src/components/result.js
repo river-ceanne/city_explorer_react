@@ -2,6 +2,8 @@ import React from 'react';
 
 let __API_URL__ = 'https://afternoon-brook-55677.herokuapp.com';
 
+// *****************************WEATHER*********************************//
+
 export const Weather = props =>  {
     let data=props.value;
     let weatherArr = [];
@@ -13,13 +15,15 @@ export const Weather = props =>  {
 
     return(
       <React.Fragment>
+        <section className="weather">
         <ul>{weatherArr}</ul>
+        </section>
       </React.Fragment>
     );
    
 };//end of WEATHER
 
-// **************************************************************//
+// *****************************YELP*********************************//
 
 export const Yelp = props => {
   let data=props.value;
@@ -39,14 +43,16 @@ export const Yelp = props => {
 
     return(
       <React.Fragment>
+        <section className="yelp">
         <ul>{yelpArr}</ul>
+        </section>
       </React.Fragment>
     );
 };
 
 
 
-// **************************************************************//
+// ******************************MOVIES********************************//
 
 export const Movies = props => {
   let data=props.value;
@@ -69,13 +75,15 @@ export const Movies = props => {
 
     return(
       <React.Fragment>
+        <section className="movies">
         <ul>{movieArr}</ul>
+        </section>
       </React.Fragment>
     );
 
 };
 
-// **************************************************************//
+// ******************************EVENTS********************************//
 
 export const Events = props => {
   let data=props.value;
@@ -94,7 +102,9 @@ export const Events = props => {
 
     return(
       <React.Fragment>
+        <section className="events">
         <ul>{eventsArr}</ul>
+        </section>
       </React.Fragment>
     );
 };
