@@ -21,7 +21,7 @@ class Map extends React.Component {
     &key=${process.env.REACT_APP_GEOCODE_API_KEY}`;
 
     return (
-      <img width="900" id="gmap_canvas" 
+      <img className="map" width="900" id="gmap_canvas" 
       src={mapURL}></img>
     );
   }

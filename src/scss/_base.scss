@@ -11,7 +11,7 @@ button {
   color: $pink;
   background-color: $black;
   font-size: 2vw;
-  padding: 3vw;
+  padding: 1.5vw;
   border-radius: 2vw;
 }
 
@@ -20,6 +20,10 @@ input {
   font-size: $input-font-size;
 }
 
-img{
-  margin: 0 auto;
+.map {
+  margin: 2vw;
+}
+
+ul{
+  width: 30%;
 }
