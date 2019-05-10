@@ -1,0 +1,34 @@
+body {
+  width: 960px; 
+  margin: 0 auto;
+  background: $pink;
+  font-family: $font_std;
+  font-size: 1.5vw;
+  color: $white;
+}
+
+h1{
+  font-size: 3vw;
+}
+
+p{
+  padding-top: 1vw;
+}
+
+input {
+  display: block;
+  margin: auto;
+  width: 30vw;
+  color: $black;
+  font-size: $input-font-size;
+}
+
+.map {
+  margin: 2vw;
+  border-radius: 2vw;
+}
+
+ul{
+  width: 25%;
+  display: inline-block;
+}

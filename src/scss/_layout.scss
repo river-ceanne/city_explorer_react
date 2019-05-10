@@ -1,0 +1,47 @@
+
+header {
+  background: $black;
+  font-size: 1.5vw;
+  text-align: center;
+  padding: $gutter_std;
+  margin-bottom: $margin-bottom-header;
+
+  a {
+      color: $white;
+  }
+}
+
+footer {
+  background: $black;
+  color: $white;
+  padding: $gutter_std;
+}
+
+form {
+  width: 40vw;; 
+  margin: 0 auto;
+}
+
+input {
+  margin-bottom: 1vw;
+}
+
+li{
+  padding: 1vw;
+}
+
+.weather{
+  float: left;
+}
+
+.yelp{
+  float: left;
+}
+
+.events{
+  float: left;
+}
+
+.movies{
+  float: left;
+}
