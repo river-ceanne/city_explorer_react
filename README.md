@@ -1,8 +1,8 @@
-## Lab12 - City Explorer with React
+## City Explorer with React
 
 Create a React front-end for the City Explorer project. 
 
-### `Part 1 - Feature Tasks`
+### `Part 1 - Feature Tasks - (Lab - 12)`
 
 Scaffold - create basic markup of needed html elements with React. 
 
@@ -79,7 +79,7 @@ Finish time: 10:30 AM
 Actual time needed to complete: 20 mins
 
 
-### `Part 2 - Feature Tasks`
+### `Part 2 - Feature Tasks - (Lab - 13)`
 
 Re-factoring scaffold made in Part-1 Feature Tasks and adding routing to results from server.
 
@@ -96,72 +96,88 @@ Create heiarchy likeso..
 
 #### `<App>`
 
-Number and name of feature: 
+Number and name of feature: Refactoring <App> with above tree
 
-Estimate of time needed to complete: 15 minutes
+Estimate of time needed to complete: 30 minutes
 
 Start time: 9AM
 
-Finish time: 9:15AM
+Finish time: 9:30AM
 
-Actual time needed to complete: 10 mins
+Actual time needed to complete: 30 mins
 
 #### `<Header>`
 
-Number and name of feature: 10 mins
+Number and name of feature: Add <Header> to own file
 
-Estimate of time needed to complete: 15 minutes
+Estimate of time needed to complete: 10 mins
 
-Start time: 9AM
+Start time: 9:30AM
 
-Finish time: 9:15AM
+Finish time: 9:40AM
 
 Actual time needed to complete: 10 mins
 
 #### `<SearchForm>`
 
-Number and name of feature: 
+Number and name of feature: API calls - getting response to App Parent
 
-Estimate of time needed to complete: 15 minutes
+Estimate of time needed to complete: 1 hour
 
-Start time: 9AM
+Start time: 9:40AM
 
-Finish time: 9:15AM
-
-Actual time needed to complete: 10 mins
-
-#### `<Map>`
-
-Number and name of feature: 
-
-Estimate of time needed to complete: 2 hours
-
-Start time: 9AM
-
-Finish time: 9:15AM
-
-Actual time needed to complete: 3 hours
-
-#### `<SearchResults>`
-
-Number and name of feature: 
-
-Estimate of time needed to complete: 2 hours
-
-Start time: 
-
-Finish time: 
+Finish time: 11:40AM
 
 Actual time needed to complete: 2 hours
 
+#### `<Map>`
+
+Number and name of feature: Add and modify <Map> to own page + display API data
+
+Estimate of time needed to complete: 1 hours
+
+Start time: 11:40AM
+
+Finish time: 1:40PM
+
+Actual time needed to complete: 2 hours
+
+#### `<SearchResults>`
+
+Number and name of feature: Add and modify <SearchResults> to own page
+
+Estimate of time needed to complete: 1 hours
+
+Start time: 6PM
+
+Finish time: 7PM
+
+Actual time needed to complete: 1 hours
+
 #### `<Result>`
 
-Number and name of feature: 
+Number and name of feature: Add each API result like <Result> as <Yelp>,<Weather>,<Events>,<Movies> - and display results
 
 Estimate of time needed to complete: 2 hours
 
-Start time: 
+Start time: 7PM
 
-Finish time: 
+Finish time: 12PM
 
 Actual time needed to complete: 5 hours
+
+### `Part 3 - Feature Tasks - (Lab - 14)`
+
+Finishing and polishing the application by completeing other unchecked tasks and adding SCSS for page styling.
+
+#### `Adding SCSS`
+
+Number and name of feature: SCSS
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 10AM
+
+Finish time: 1PM
+
+Actual time needed to complete: 3 hours
