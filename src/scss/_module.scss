@@ -40,3 +40,19 @@ li {
 li img {
   height: 10vw;
 }
+
+button {
+  color: $black;
+  background-color: $white;
+  font-size: 2vw;
+  padding: 1vw 2vw 1vw 2vw;
+  border-radius: 2vw;
+  margin: auto;
+  display: block;
+  width: 10vw;;
+
+  &:hover {
+    background: $black;
+    color: $pink;
+}
+}

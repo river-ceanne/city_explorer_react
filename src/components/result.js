@@ -15,9 +15,7 @@ export const Weather = props =>  {
 
     return(
       <React.Fragment>
-        <section className="weather">
-        <ul>{weatherArr}</ul>
-        </section>
+        <ul className="weather">{weatherArr}</ul>
       </React.Fragment>
     );
    
@@ -43,9 +41,7 @@ export const Yelp = props => {
 
     return(
       <React.Fragment>
-        <section className="yelp">
-        <ul>{yelpArr}</ul>
-        </section>
+        <ul className="yelp">{yelpArr}</ul>
       </React.Fragment>
     );
 };
@@ -75,9 +71,7 @@ export const Movies = props => {
 
     return(
       <React.Fragment>
-        <section className="movies">
-        <ul>{movieArr}</ul>
-        </section>
+        <ul className="movies">{movieArr}</ul>
       </React.Fragment>
     );
 
@@ -102,9 +96,7 @@ export const Events = props => {
 
     return(
       <React.Fragment>
-        <section className="events">
-        <ul>{eventsArr}</ul>
-        </section>
+        <ul className="events">{eventsArr}</ul>
       </React.Fragment>
     );
 };

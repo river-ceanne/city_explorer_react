@@ -15,23 +15,20 @@ p{
   padding-top: 1vw;
 }
 
-button {
-  color: $pink;
-  background-color: $black;
-  font-size: 2vw;
-  padding: 1.5vw;
-  border-radius: 2vw;
-}
-
 input {
+  display: block;
+  margin: auto;
+  width: 30vw;
   color: $black;
   font-size: $input-font-size;
 }
 
 .map {
   margin: 2vw;
+  border-radius: 2vw;
 }
 
 ul{
-  width: 30%;
+  width: 25%;
+  display: inline-block;
 }
