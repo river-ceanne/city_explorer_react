@@ -14,7 +14,6 @@ export class Weather extends React.Component {
 
   render() {
     let data=this.props.value;
-    console.log('weather data length: ',data.length);
     let weatherArr = new Array(data.length).fill('');
 
    
@@ -22,8 +21,6 @@ export class Weather extends React.Component {
       for(let i = 0; i < data.length; i++)
       weatherArr.push(<li key ={i}>The forecast for {this.props.value[i].time} is: {this.props.value[i].forecast}.</li>);
     }
-
-    let placeholder = <><li>PLACEHOLDER</li><li>PLACEHOLDER</li></>;
 
     console.table('API RESULTS IN WEATHER : ', data);
 
@@ -41,9 +38,7 @@ export class Weather extends React.Component {
 // **************************************************************//
 export const Yelp = props => {
   let data=props.value;
-    console.log('weather data length: ',data.length);
     let yelpArr = new Array(data.length).fill('');
-
    
     if (props.value !== null){
       for(let i = 0; i < data.length; i++)
@@ -55,12 +50,6 @@ export const Yelp = props => {
           </li>
       );
     }
-
-    let placeholder = <><li>PLACEHOLDER</li><li>PLACEHOLDER</li></>;
-
-    console.table('API RESULTS IN WEATHER : ', data);
-
-    console.table('WEATHER ARRAY: ', yelpArr);
 
     return(
       <React.Fragment>
@@ -74,10 +63,36 @@ export const Yelp = props => {
 // **************************************************************//
 
 export const Movies = props => {
-  return <footer>My Cool Footer</footer>;
+  let data=props.value;
+    let movieArr = new Array(data.length).fill('');
+    let movieImage = 'https://via.placeholder.com/150';
+   
+    if (props.value !== null){
+      
+      for(let i = 0; i < data.length; i++){
+      
+      // if(data[i].image_url !== null || data[i].image_url !== ''){
+      //   movieImage = data[i].image_url;
+      // }
+
+      movieArr.push(
+        <li key = {i}>
+        <p>{data[i].title} was released on {data[i].released_on}. Out of {data[i].total_votes}, {data[i].title} has an average vote of {data[i].average_votes} and a popularity score of {data[i].popularity}</p>
+        <p>{data[i].summary}</p>
+        <img src={data[i].image_url} alt = "Movie"/>
+        <p>{data[i].overview}</p>
+      </li>
+      );
+      }
+    }
+
+    return(
+      <React.Fragment>
+        <ul>{movieArr}</ul>
+      </React.Fragment>
+    );
+
 };
-
-
 
 // **************************************************************//
 
