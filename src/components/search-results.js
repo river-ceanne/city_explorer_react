@@ -13,7 +13,7 @@ class SearchResults extends React.Component {
 
     return(
       <>
-      <Weather value={this.props.value}/>
+      <Weather value={this.props.weather}/>
       </>
       
     );

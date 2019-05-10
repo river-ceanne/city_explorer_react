@@ -31,7 +31,7 @@ class App extends React.Component {
         <Header />
         <SearchForm callback={this.setStateData} />
         <Map value={this.state} />
-        <SearchResults value={this.state}/>
+        <SearchResults value={this.state} weather={this.state.weather}/>
       </>
     );
   }

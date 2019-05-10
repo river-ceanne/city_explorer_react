@@ -25,12 +25,12 @@ class SearchForm extends React.Component {
     console.log(query);
 
     let locationData = await superagent.get(`${__API_URL__}/location`).query({ data : query });
-    let weatherData = await superagent.get(`${__API_URL__}/weather`).query({data : query});
+    let weatherData = await superagent.get(`${__API_URL__}/weather`).query({data : locationData.body});
 
-
+    console.log(weatherData);
     let apiResults = {
       location: locationData.body,
-      weather: weatherData.body.text
+      weather: weatherData.body
     }
 
     console.log('API RESULTS : ',apiResults);

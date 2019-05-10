@@ -13,28 +13,30 @@ export class Weather extends React.Component {
   }
 
   render() {
-    let query = this.props.value.search_query;
-    let data;
-    console.log(query);
+    let weatherData=this.props.value;
+    console.log('weather data length: ',weatherData.length);
+    let weatherArr = new Array(weatherData.length).fill('');
 
-    const getAPIData = async () => {
-      data = await superagent.get(`${__API_URL__}/weather`).query({ data : query });
-      console.log(data.text);
-      this.setState({data: data.text});
-    };
+    // let weather = weatherArr.map((item, i) => {
+    //   console.log('-----------------',weatherData[i]);
+    //   return <li key={i}>{weatherData[i]}</li>;
+    // });
 
-    //getAPIData();
+   
+    if (this.props.value !== null){
+      for(let i = 0; i < weatherData.length; i++)
+      weatherArr.push(<li key ={i}>The forecast for {this.props.value[i].time} is: {this.props.value[i].forecast}.</li>);
+    }
 
-    let apiData  = [...this.state.data];
-    console.log('API DATA: ',apiData);
-    let weather = apiData.map((item, i) => <li key={i}>{item.forecast}</li>);
     let placeholder = <><li>PLACEHOLDER</li><li>PLACEHOLDER</li></>;
 
-    console.log('API RESULTS IN WEATHER : ', apiData);
+    console.table('API RESULTS IN WEATHER : ', weatherData);
+
+    console.table('WEATHER ARRAY: ', weatherArr);
 
     return(
       <React.Fragment>
-        <ul>{placeholder}</ul>
+        <ul>{weatherArr}</ul>
       </React.Fragment>
     );
    
