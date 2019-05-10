@@ -13,7 +13,6 @@ export const Weather = props =>  {
 
     return(
       <React.Fragment>
-        <h3>Weather Forecast</h3>
         <ul>{weatherArr}</ul>
       </React.Fragment>
     );
